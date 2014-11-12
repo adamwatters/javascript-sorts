@@ -3,6 +3,8 @@
 
 	'use strict';
 
+	console.log('selection-sort');
+
 	var my_array = [5, 1, 7, 32, 8, 4, 0, 9, 11, 30];
 
 	var selectionSort = function(collection, startingPoint) {
@@ -26,5 +28,5 @@
 	console.log(my_array);
 	selectionSort(my_array, 0);
 	console.log(my_array);
-	
+
 })()

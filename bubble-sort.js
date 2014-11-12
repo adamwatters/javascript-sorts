@@ -2,6 +2,8 @@
 {
   'use strict';
 
+  console.log('bubble-sort');
+
   var my_array = [5, 1, 7, 32, 8, 4, 0, 9, 11, 30];
 
   function bubbleSort (collection)
@@ -30,6 +32,8 @@
 
     return collection;
   }
+
+  console.log(my_array);
 
   bubbleSort(my_array);
 
