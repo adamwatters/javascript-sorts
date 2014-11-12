@@ -1,10 +1,13 @@
-;(function ()
-{
-  'use strict';
+var publicBubbleSort = function(){
 
-  console.log('bubble-sort');
+  var script = [];
+  var original_array = [];
 
-  var my_array = [5, 1, 7, 32, 8, 4, 0, 9, 11, 30];
+  for(var i = 0; i < 30; i++) {
+    original_array.push(Math.floor(Math.random() * 100));
+  }
+
+  var my_array = original_array.slice();
 
   function bubbleSort (collection)
   {
@@ -18,12 +21,16 @@
 
       if (second < first)
       {
+        //push frame of swap (index to neighbor)
+        script.push({a: index,b: index + 1});
         collection[index] = second;
         collection[index + 1] = first;
 
         goAgain = true;
+      } else {
+        //push frame with no action (index to index)
+        script.push({a: index, b: index});
       }
-
       index++;
     }
 
@@ -33,10 +40,8 @@
     return collection;
   }
 
-  console.log(my_array);
-
   bubbleSort(my_array);
 
-  console.log(my_array);
+  return {data: original_array, script: script};
 
-}());
+}
