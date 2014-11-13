@@ -1,14 +1,9 @@
-var publicSelectionSort = function(){
+var publicSelectionSort = function(original_array){
 
 	'use strict';
 
 	var script = [];
-  	var original_array = [];
-
-	for(var i = 0; i < 30; i++) {
-    	original_array.push(Math.floor(Math.random() * 100));
-  	}
-
+  
   	var my_array = original_array.slice();
 
 	var selectionSort = function(collection, startingPoint) {
@@ -32,8 +27,8 @@ var publicSelectionSort = function(){
 		}
 	}
 
-	selectionSort(my_array, 0);
 	console.log(my_array);
+	selectionSort(my_array, 0);
 	return {data: original_array, script: script};
 
 };

@@ -1,11 +1,6 @@
-var publicBubbleSort = function(){
+var publicBubbleSort = function(original_array){
 
   var script = [];
-  var original_array = [];
-
-  for(var i = 0; i < 30; i++) {
-    original_array.push(Math.floor(Math.random() * 100));
-  }
 
   var my_array = original_array.slice();
 
@@ -40,6 +35,7 @@ var publicBubbleSort = function(){
     return collection;
   }
 
+  console.log(my_array);
   bubbleSort(my_array);
 
   return {data: original_array, script: script};

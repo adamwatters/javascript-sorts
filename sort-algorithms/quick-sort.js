@@ -1,10 +1,12 @@
-;(function(){ 
-	var wiki_array = [3, 7 , 8, 5 ,2 , 1, 9, 5 , 4];
-	var my_array = [5, 1, 7, 32, 8, 4, 0, 9, 11, 30];
+var publicQuickSort = function(original_array){
+
+  var script = [];
+ 
+  var my_array = original_array.slice();
 
 	var quickSort = function(collection, start, end) {
 
-		console.log("start", start, "end", end);
+		//console.log("start", start, "end", end);
 
 		if (end - start < 1) {
 			return
@@ -20,15 +22,21 @@
 				var second = collection[pivotIndex -1];
 				var third = collection[pivotIndex];
 
+				script.push({a: compareIndex, b: pivotIndex, flag: pivotIndex});
+				script.push({a: compareIndex, b: pivotIndex-1, flag: pivotIndex});
+
 				collection[pivotIndex] = first;
-				console.log("move", first, "to index", pivotIndex);
+				//console.log("move", first, "to index", pivotIndex);
+
 				collection[compareIndex] = second;
-				console.log("move", second, "to index", compareIndex);
+				//console.log("move", second, "to index", compareIndex);
+
 				collection[pivotIndex - 1] = third;
-				console.log("move", third, "to index", pivotIndex -1);
+				//console.log("move", third, "to index", pivotIndex -1);
 
 				pivotIndex -= 1; 
 			} else {
+				script.push({a: compareIndex, b: compareIndex, flag: pivotIndex});
 				compareIndex += 1;
 			}
 		}
@@ -38,7 +46,8 @@
 
 	};
 
-	quickSort(my_array, 0, my_array.length -1);
 	console.log(my_array);
+	quickSort(my_array, 0, my_array.length -1);
+	return {data: original_array, script: script};
 
-})()
+};

@@ -1,12 +1,10 @@
-;(function ()
-{
-  'use strict';
-  
-  console.log('merge-sort');
+var publicMergeSort = function(){
 
-  var my_array = [5, 1, 7, 32, 8, 4, 0, 9, 11, 30, 23];
+  var script = [];
 
-  function mergeSort(collection)
+  var my_array = original_array.slice();
+
+  function mergeSort(collection, startindex)
   {
     var result = [];
 
@@ -14,8 +12,8 @@
     {
       var middle = parseInt(collection.length / 2);
 
-      var left = mergeSort(collection.slice(0, middle));
-      var right = mergeSort(collection.slice(middle, collection.length));
+      var left = mergeSort(collection.slice(0, middle), 0);
+      var right = mergeSort(collection.slice(middle, collection.length), middle);
 
       console.log('left', left);
       console.log('right', right);
@@ -61,6 +59,6 @@
 
   console.log(my_array);
 
-  var my_mergesroted_array = mergeSort(my_array);
+  var my_mergesroted_array = mergeSort(my_array, 0);
 
-}());
+};

@@ -1,5 +1,6 @@
 .chart div {
 
+	width: 5px;
 	float: left;
 	font: 10px sans-serif;
 	background-color: blue;
@@ -7,4 +8,26 @@
 	padding: 3px;
 	margin: 1px;
 	color: white;
+}
+
+.bubble-sort-chart {
+
+	position: fixed;
+	left: 20px;
+	top: 20px;
+
+
+}
+.selection-sort-chart{
+
+	position: fixed;
+	left: 20px;
+	top: 260px;
+
+}
+.quick-sort-chart{
+
+	position: fixed;
+	left: 20px;
+	top: 500px;
 }
