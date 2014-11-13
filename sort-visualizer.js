@@ -1,11 +1,14 @@
 ;(function(){ 
 
-	var Visualizer = function() {
+	var Visualizer = function(sortAlgorithm) {
 		var self = this;
-		var sortSequence = publicBubbleSort();
+		var sortSequence = sortAlgorithm();
 		this.data = sortSequence.data;
 		this.script = sortSequence.script;
 		this.count = 0;
+
+		console.log(this.data);
+		console.log(this.script);
 
 		this.active = 0;
 
@@ -53,7 +56,6 @@
 	    			.data(data)
 	  				.enter().append("div")
 	  				.style("background-color", function(d) {
-	  					console.log(count, active);
 	  					var color = (active === count) ? "red" : "blue";
 	  					count ++
 	  					return color;
@@ -68,6 +70,6 @@
 	};
 
 	window.addEventListener("load", function() {
-		new Visualizer();
+		new Visualizer(publicSelectionSort);
 	});
 })()
