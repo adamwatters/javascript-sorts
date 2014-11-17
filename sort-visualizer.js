@@ -61,12 +61,14 @@
 	    			.data(data)
 	  				.enter().append("div")
 	  				.style("background-color", function(d) {
-	  					var color = (active === count) ? "blue" : d3.rgb(255-d, 255-d/2, d);
+	  					if (d <= 255) {
+	  						var color = (active === count) ? "blue" : d3.rgb(255 - d, d, 0);
+	  					} else if (d > 255){
+	  						var color = (active === count) ? "blue" : d3.rgb(0, 510 - d, d-255);
+	  					}
 	  					if (flag === count) {
 	  						color = "yellow";
 	  					}
-
-	  					//color = d3.rgb(255 - d, 255-d , d);
 	  					count ++
 	  					return color;
 	  				})
@@ -83,7 +85,7 @@
 		//generate array
   		var original_array = [];
   			for(var i = 0; i < 80; i++) {
-    			original_array.push(Math.floor(Math.random() * 255));
+    			original_array.push(Math.floor(Math.random() * 510));
   			}
 
   		console.log(original_array);
